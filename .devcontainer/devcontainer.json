@@ -16,10 +16,15 @@
   // Port 5683 udp is used by Shelly integration
   "appPort": ["8123:8123", "5683:5683/udp"],
   "runArgs": [
+    "--name",
+    "homeassistant-dev",
     "-e",
     "GIT_EDITOR=code --wait",
     "--security-opt",
     "label=disable"
+  ],
+  "mounts": [
+    "source=/mnt/user/homeassistant-dev,target=/workspaces/core/config/www/tutorial,type=bind"
   ],
   "customizations": {
     "vscode": {
